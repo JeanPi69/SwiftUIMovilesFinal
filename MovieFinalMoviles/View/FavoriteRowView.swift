@@ -10,7 +10,8 @@ import SwiftUI
 
 struct FavoriteRowView: View {
     
-    @EnvironmentObject var favoriteVM: FavoriteViewModel
+     @EnvironmentObject var favoriteVM: FavoriteViewModel
+       
     
     var favorite: Favorite?
     

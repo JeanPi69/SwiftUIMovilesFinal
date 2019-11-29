@@ -16,24 +16,25 @@ struct FavoriteView: View {
         
         NavigationView{
             List{
-                ForEach(self.favoriteVM.favorites,id: \.id){ favorite in
-                    FavoriteRowView(favorite: favorite)
-                    
-                }.onDelete(){
-                    indexSet in
-                    self.favoriteVM.deleteFavorite(position: indexSet.first!)
-                }
+                ForEach(self.favoriteVM.favorites,id: \.self){ favorite in
+                    Text(favorite.title!)
+//                    FavoriteRowView(favorite: favorite)
+                }.onDelete(perform: removeFavorite)
+//                    {
+//                    indexSet in
+//                    self.favoriteVM.deleteFavorite(position: indexSet.first!)
+//                }
             }.navigationBarTitle("Lista de Favoritos")
         }
         
     }
     
     
-//    func removeFavorite(at offsets: IndexSet){
-//        for index in offsets{
-//            favoriteVM.deleteFavorite(position: index)
-//        }
-//    }
+    func removeFavorite(at offsets: IndexSet){
+        for index in offsets{
+            favoriteVM.deleteFavorite(position: index)
+        }
+    }
     
 }
 

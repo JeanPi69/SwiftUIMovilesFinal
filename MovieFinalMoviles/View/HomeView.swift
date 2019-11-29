@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var movieListVM = MovieListViewModel()
+    
     var body: some View {
         TabView{
             
-            SearchView().tabItem(){
+            SearchView(movieListVM: movieListVM).tabItem(){
                 Image(systemName: "magnifyingglass")
                 Text("Movies")
             }
